@@ -10,7 +10,7 @@ The paper is available at https://pascalmichaillat.org/13/.
 
 The raw data used by the code to produce the results in the paper are stored as CSV files. The data are placed in the `raw` folder. 
 
-+ `20210719_cycle_dates_pasted.csv` – US recession dates, 1930–2024
++ `20210719_cycle_dates_pasted.csv` – US recession dates, 1857–2020
 	+ Source: [National Bureau of Economic Research (2023)](http://data.nber.org/data/cycles/)
 + `CLF16OV.csv` – US labor force level, 1948–2024
 	+ Source: [Bureau of Labor Statistics (2024a)](https://fred.stlouisfed.org/series/CLF16OV)
