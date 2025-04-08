@@ -86,7 +86,7 @@ The main script then produces the individual figures using a collection of scrip
 + `figure14B.m` – Produce panel B of figure 14
 + `figure15.m` – Produce figure 15
 
-The scripts produce figures in figure windows, save a copy of each figure in PDF format, and save the data used to generate each figure in CSV files. Each script also produces the numerical results associated with the figure. The results are displayed in the command window and saved in a Markdown file.
+The scripts produce the figures in figure windows, save a copy of each figure in PDF files, and save the data used to generate each figure in CSV files. The scripts also produce the numerical results associated with the figures. The results are displayed in the command window and saved in Markdown files.
 
 ### Helper functions
 
