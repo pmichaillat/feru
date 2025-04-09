@@ -10,21 +10,19 @@ The paper is available at https://pascalmichaillat.org/13/.
 
 The raw data used by the code to produce the results in the paper are stored as CSV files. The data are placed in the `raw` folder. 
 
-+ `20210719_cycle_dates_pasted.csv` – US recession dates, 1857–2020
++ `20210719_cycle_dates_pasted.csv` – US business cycle dates, 1857–2020
 	+ Source: [National Bureau of Economic Research (2023)](http://data.nber.org/data/cycles/)
-+ `CLF16OV.csv` – US labor force level, 1948–2024
++ `CLF16OV.csv` – US civilian labor force level, 1948–2024
 	+ Source: [Bureau of Labor Statistics (2024a)](https://fred.stlouisfed.org/series/CLF16OV)
 + `CompositeHWI.xlsx - Sheet1.csv` – US vacancy rate, 1951–2020
 	+ Source: [Barnichon (2010)](https://docs.google.com/spreadsheets/d/1fkMinSHkjTL99-bLZYFldQ8rHtgh8lxd)
-+ `ustar.csv` – US NAIRU, 1960–2023
-	+ Source: [Crump, Eusepi, Giannoni, and Sahin (2024)](https://doi.org/10.1016/j.jmoneco.2024.103580)
 + `figure5.csv` – Dates of structural breaks in the US Beveridge curve, 1951–2019
 	+ Source: [Michaillat and Saez (2021a)](https://github.com/pmichaillat/unemployment-gap)
 + `figure6.csv` – Elasticity of the US Beveridge curve, 1951–2019
 	+ Source: [Michaillat and Saez (2021a)](https://github.com/pmichaillat/unemployment-gap)
 + `HistoricalSeries_JME_2020January.csv` – US unemployment and vacancy rates, 1890–2017
 	+ Source: [Petrosky-Nadeau and Zhang (2021)](https://docs.google.com/spreadsheets/d/1Ym0zkHZtIvb73zjLzL2cz_P5lXrulzFgvZpA5ZYyElI)
-+ `JTSJOL.csv` – Job openings in the United States, 2001–2024
++ `JTSJOL.csv` – US total nonfarm job openings, 2001–2024
 	+ Source: [Bureau of Labor Statistics (2024f)](https://fred.stlouisfed.org/series/JTSJOL)
 + `LNU05026642.csv` – Marginally attached workers in the United States, 1994–2024
 	+ Source: [Bureau of Labor Statistics (2024h)](https://fred.stlouisfed.org/series/LNU05026642)
@@ -40,6 +38,8 @@ The raw data used by the code to produce the results in the paper are stored as 
 	+ Source: [Bureau of Labor Statistics (2024j)](https://fred.stlouisfed.org/series/U5RATE)
 + `UNRATE.csv` – US unemployment (U3) rate, 1948–2024
 	+ Source: [Bureau of Labor Statistics (2024k)](https://fred.stlouisfed.org/series/UNRATE)
++ `ustar.csv` – US NAIRU, 1960–2023
+	+ Source: [Crump, Eusepi, Giannoni, and Sahin (2024)](https://doi.org/10.1016/j.jmoneco.2024.103580)
 
 ## Code
 
@@ -163,12 +163,6 @@ run('main.m')
 ```
 
 4. The main script will overwrite all files in the `figures` folder by default. So if you wish to preserve the existing files, save a copy of the `figures` folder before running the script.
-
-5. To prevent overwriting the original `figures` folder, you can direct the output to a new folder. First, create a new folder named `newfigures`. Then, modify the `outputFolder` variable in `main.m`:
-
-```matlab
-outputFolder = fullfile('..', 'newfigures');
-```
 
 ## Software
 
