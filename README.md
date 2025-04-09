@@ -24,9 +24,9 @@ The raw data used by the code to produce the results in the paper are stored as 
 	+ Source: [Petrosky-Nadeau and Zhang (2021)](https://docs.google.com/spreadsheets/d/1Ym0zkHZtIvb73zjLzL2cz_P5lXrulzFgvZpA5ZYyElI)
 + `JTSJOL.csv` – US total nonfarm job openings, 2001–2024
 	+ Source: [Bureau of Labor Statistics (2024f)](https://fred.stlouisfed.org/series/JTSJOL)
-+ `LNU05026642.csv` – Marginally attached workers in the United States, 1994–2024
++ `LNU05026642.csv` – US marginally attached workers, 1994–2024
 	+ Source: [Bureau of Labor Statistics (2024h)](https://fred.stlouisfed.org/series/LNU05026642)
-+ `LNU05026645.csv` – Discouraged workers in the United States, 1994–2024
++ `LNU05026645.csv` – US discouraged workers, 1994–2024
 	+ Source: [Bureau of Labor Statistics (2024g)](https://fred.stlouisfed.org/series/LNU05026645)
 + `NROU.csv` – US NRU, 1949–2024
 	+ Source: [Congressional Budget Office (2024)](https://fred.stlouisfed.org/series/NROU)
