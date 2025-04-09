@@ -12,7 +12,7 @@ The raw data used by the code to produce the results in the paper are stored as 
 
 + `20210719_cycle_dates_pasted.csv` – US business cycle dates, 1857–2020
 	+ Source: [National Bureau of Economic Research (2023)](http://data.nber.org/data/cycles/)
-+ `CLF16OV.csv` – US civilian labor force level, 1948–2024
++ `CLF16OV.csv` – US labor force level, 1948–2024
 	+ Source: [Bureau of Labor Statistics (2024a)](https://fred.stlouisfed.org/series/CLF16OV)
 + `CompositeHWI.xlsx - Sheet1.csv` – US vacancy rate, 1951–2020
 	+ Source: [Barnichon (2010)](https://docs.google.com/spreadsheets/d/1fkMinSHkjTL99-bLZYFldQ8rHtgh8lxd)
@@ -22,7 +22,7 @@ The raw data used by the code to produce the results in the paper are stored as 
 	+ Source: [Michaillat and Saez (2021a)](https://github.com/pmichaillat/unemployment-gap)
 + `HistoricalSeries_JME_2020January.csv` – US unemployment and vacancy rates, 1890–2017
 	+ Source: [Petrosky-Nadeau and Zhang (2021)](https://docs.google.com/spreadsheets/d/1Ym0zkHZtIvb73zjLzL2cz_P5lXrulzFgvZpA5ZYyElI)
-+ `JTSJOL.csv` – US total nonfarm job openings, 2001–2024
++ `JTSJOL.csv` – US job openings, 2001–2024
 	+ Source: [Bureau of Labor Statistics (2024f)](https://fred.stlouisfed.org/series/JTSJOL)
 + `LNU05026642.csv` – US marginally attached workers, 1994–2024
 	+ Source: [Bureau of Labor Statistics (2024h)](https://fred.stlouisfed.org/series/LNU05026642)
