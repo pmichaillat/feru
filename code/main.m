@@ -32,7 +32,7 @@ inputFolder = fullfile('..', 'raw');
 % Specify folder with figures and numerical results
 outputFolder = fullfile('..', 'figures');
 
-%% Format default figure and predefine plot properties
+%% Format default figure and predefine figure properties
 
 formatFigure
 

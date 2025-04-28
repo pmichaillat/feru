@@ -21,7 +21,7 @@ The raw data used by the code to produce the results in the paper are stored as 
 + `figure6.csv` - Elasticity of the US Beveridge curve, 1951–2019
 	+ Source: [Michaillat and Saez (2021a)](https://github.com/pmichaillat/unemployment-gap)
 + `HistoricalSeries_JME_2020January.csv` - US unemployment and vacancy rates, 1890–2017
-	+ Source: [Petrosky-Nadeau and Zhang (2021)](https://docs.google.com/spreadsheets/d/1Ym0zkHZtIvb73zjLzL2cz_P5lXrulzFgvZpA5ZYyElI)
+	+ Source: [Petrosky-Nadeau and Zhang (2021)](https://drive.google.com/file/d/1NcuUMRR4_fOwJW6qHb-XxitVSXXONBHW)
 + `JTSJOL.csv` - US job openings, 2001–2024
 	+ Source: [BLS (2024f)](https://fred.stlouisfed.org/series/JTSJOL)
 + `LNU05026642.csv` - US marginally attached workers, 1994–2024
@@ -54,7 +54,7 @@ The main script, `main.m`, orchestrates the production of the results in the pap
 
 ### Formatting script
 
-Before the computations begin, the main script calls the script `formatFigure.m` to preformat figures and predefine plot properties.
+Before the computations begin, the main script calls the script `formatFigure.m` to preformat figures and predefine figure properties.
 
 ### Production scripts
 
@@ -86,7 +86,7 @@ The main script then produces the individual figures using a collection of scrip
 + `figure14B.m` - Produce panel B of figure 14
 + `figure15.m` - Produce figure 15
 
-The scripts produce the figures in figure windows, save a copy of each figure in PDF files, and save the data used to generate each figure in CSV files. The scripts also produce the numerical results associated with the figures. The results are displayed in the command window and saved in Markdown files.
+The scripts display the figures in MATLAB figure windows, save each figure as a PDF file, and save the underlying data as CSV files. The scripts also produce the numerical results associated with the figures. The results are displayed in the MATLAB command window and saved in Markdown files.
 
 ### Helper functions
 
@@ -117,7 +117,7 @@ The production scripts rely on a collection of helper functions:
 
 ## Figures
 
-The 30 figures produced by the code are saved as 30 PDF files. The data used to generate each figure are saved in CSV files. And the numerical results associated with each figure are saved in Markdown files. All these files are placed in the `figures` folder, each corresponding to a specific figure in the paper:
+The figures produced by the code are saved as PDF files. The data used to generate each figure are saved as CSV files. And the numerical results associated with each figure are saved in Markdown files. All the files are placed in the `figures` folder, each corresponding to a specific figure in the paper:
 
 + `figure1A.pdf`, `figure1A.csv`, `figure1A.md` - Panel A of figure 1
 + `figure1B.pdf`, `figure1B.csv` - Panel B of figure 1

@@ -1,6 +1,6 @@
 %% formatFigure.m
 % 
-% Format default figure and predefine plot properties
+% Format default figure and predefine figure properties
 %
 %% Description
 %
@@ -8,7 +8,7 @@
 %
 % The script also predefines a color palette composed of purple, pink, orange, and gray. Each color is specified in hexadecimal format (hex triplet) and encoded as a string.
 %
-% Finally, the script predefines various plot properties: for areas, for lines, for markers, and for axes. These properties are contained in cell arrays.
+% Finally, the script predefines various figure properties: for areas, for lines, for markers, and for axes. These properties are contained in cell arrays.
 %
 % The script is used to maintain consistent formatting across all figures.
 %
