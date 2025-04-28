@@ -8,15 +8,15 @@
 %
 %% Requirements
 %
-% * inputFolder – Path to the input folder (default: defined in main.m)
-% * outputFolder – Path to the output folder (default: defined in main.m)
-% * formatFigure.m – Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to the input folder (default: defined in main.m)
+% * outputFolder - Path to the output folder (default: defined in main.m)
+% * formatFigure.m - Script for plot formatting (default: run in main.m)
 %
 %% Output
 %
-% * figure8B.pdf – PDF file with panel B of figure 8
-% * figure8B.csv – CSV file with data underlying panel B of figure 8
-% * figure8B.md – Markdown file with numerical results from panel B of figure 8
+% * figure8B.pdf - PDF file with panel B of figure 8
+% * figure8B.csv - CSV file with data underlying panel B of figure 8
+% * figure8B.md - Markdown file with numerical results from panel B of figure 8
 %
 
 %% Specify figure name and output files

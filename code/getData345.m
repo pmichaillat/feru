@@ -8,27 +8,27 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
-% * u3 – 122-by-1 numeric column vector with unemployment rate u3
-% * v3 – 122-by-1 numeric column vector with vacancy rate v3
-% * u4 – 122-by-1 numeric column vector with unemployment rate u4
-% * v4 – 122-by-1 numeric column vector with vacancy rate v4
-% * u5 – 122-by-1 numeric column vector with unemployment rate u5
-% * v5 – 122-by-1 numeric column vector with vacancy rate v5
+% * inputFolder - Character array with path to raw-data folder
+% * u3 - 122-by-1 numeric column vector with unemployment rate u3
+% * v3 - 122-by-1 numeric column vector with vacancy rate v3
+% * u4 - 122-by-1 numeric column vector with unemployment rate u4
+% * v4 - 122-by-1 numeric column vector with vacancy rate v4
+% * u5 - 122-by-1 numeric column vector with unemployment rate u5
+% * v5 - 122-by-1 numeric column vector with vacancy rate v5
 %
 %% Description
 %
 % This function produces various quarterly unemployment rates in the United States, 1994Q1–2024Q2:
 %
-% * u3 – Unemployment rate based on U3 concept
-% * u4 – Unemployment rate based on U4 concept
-% * u5 – Unemployment rate based on U5 concept
+% * u3 - Unemployment rate based on U3 concept
+% * u4 - Unemployment rate based on U4 concept
+% * u5 - Unemployment rate based on U5 concept
 %
 % Given that the different concepts of unemployment lead to different measures of the labor force, the vacancy rate = vacancy level / labor force level must be adjusted for consistency when different unemployment concepts are used:
 %
-% * v3 – Vacancy rate consistent with the U3 concept
-% * v4 – Vacancy rate consistent with the U4 concept
-% * v5 – Vacancy rate consistent with the U5 concept
+% * v3 - Vacancy rate consistent with the U3 concept
+% * v4 - Vacancy rate consistent with the U4 concept
+% * v5 - Vacancy rate consistent with the U5 concept
 %
 % The vacancy rates are built from the same vacancy level but different labor force levels:
 %
@@ -38,12 +38,12 @@
 %
 %% Data source
 %
-% * Monthly U3 unemployment rate – Bureau of Labor Statistics (2024k)
-% * Monthly U4 unemployment rate – Bureau of Labor Statistics (2024i)
-% * Monthly U5 unemployment rate – Bureau of Labor Statistics (2024j)
-% * Monthly labor force participants – Bureau of Labor Statistics (2024a)
-% * Monthly discouraged workers – Bureau of Labor Statistics (2024g)
-% * Monthly marginally attached workers – Bureau of Labor Statistics (2024h)
+% * Monthly U3 unemployment rate - BLS (2024k)
+% * Monthly U4 unemployment rate - BLS (2024i)
+% * Monthly U5 unemployment rate - BLS (2024j)
+% * Monthly labor force participants - BLS (2024a)
+% * Monthly discouraged workers - BLS (2024g)
+% * Monthly marginally attached workers - BLS (2024h)
 %
 
 function [u3, u4, u5, v3, v4, v5] = getData345(inputFolder)

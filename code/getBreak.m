@@ -8,8 +8,8 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
-% * breakDate – 5-by-1 numeric column vector with break dates
+% * inputFolder - Character array with path to raw-data folder
+% * breakDate - 5-by-1 numeric column vector with break dates
 %
 %% Description
 %

@@ -8,8 +8,8 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
-% * v – 84-by-1 numeric column vector with vacancy rate
+% * inputFolder - Character array with path to raw-data folder
+% * v - 84-by-1 numeric column vector with vacancy rate
 %
 %% Description
 %

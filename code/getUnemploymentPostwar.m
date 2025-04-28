@@ -8,8 +8,8 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
-% * u – 276-by-1 numeric column vector with unemployment rate
+% * inputFolder - Character array with path to raw-data folder
+% * u - 276-by-1 numeric column vector with unemployment rate
 %
 %% Description
 %
@@ -17,7 +17,7 @@
 %
 %% Data source
 %
-% * Bureau of Labor Statistics (2024k)
+% * BLS (2024k)
 %
 
 function u = getUnemploymentPostwar(inputFolder)

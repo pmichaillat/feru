@@ -8,9 +8,9 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
-% * startRecession – 3-by-1 numeric column vector with recession start dates
-% * endRecession – 3-by-1 numeric column vector with recession end dates
+% * inputFolder - Character array with path to raw-data folder
+% * startRecession - 3-by-1 numeric column vector with recession start dates
+% * endRecession - 3-by-1 numeric column vector with recession end dates
 %
 %% Description
 %
@@ -20,7 +20,7 @@
 %
 %% Data source
 %
-% * National Bureau of Economic Research (2023)
+% * NBER (2023)
 %
 
 function [startRecession, endRecession] = getRecession345(inputFolder)

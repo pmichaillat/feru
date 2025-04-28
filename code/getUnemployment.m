@@ -8,8 +8,8 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
-% * u – 378-by-1 numeric column vector with unemployment rate
+% * inputFolder - Character array with path to raw-data folder
+% * u - 378-by-1 numeric column vector with unemployment rate
 %
 %% Description
 %

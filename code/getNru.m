@@ -8,7 +8,7 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
+% * inputFolder - Character array with path to raw-data folder
 % * nru - 302-by-1 numeric column vector with NRU
 %
 %% Description
@@ -17,7 +17,7 @@
 %
 %% Data source
 %
-% * Congressional Budget Office (2024)
+% * CBO (2024)
 %
 
 function nru = getNru(inputFolder)

@@ -8,9 +8,9 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
-% * startRecession – 15-by-1 numeric column vector with recession start dates
-% * endRecession – 15-by-1 numeric column vector with recession end dates
+% * inputFolder - Character array with path to raw-data folder
+% * startRecession - 15-by-1 numeric column vector with recession start dates
+% * endRecession - 15-by-1 numeric column vector with recession end dates
 %
 %% Description
 %

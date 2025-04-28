@@ -8,14 +8,14 @@
 %
 %% Requirements
 %
-% * inputFolder – Path to the input folder (default: defined in main.m)
-% * outputFolder – Path to the output folder (default: defined in main.m)
-% * formatFigure.m – Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to the input folder (default: defined in main.m)
+% * outputFolder - Path to the output folder (default: defined in main.m)
+% * formatFigure.m - Script for plot formatting (default: run in main.m)
 %
 %% Output
 %
-% * figure6A.pdf – PDF file with panel A of figure 6
-% * figure6A.csv – CSV file with data underlying panel A of figure 6
+% * figure6A.pdf - PDF file with panel A of figure 6
+% * figure6A.csv - CSV file with data underlying panel A of figure 6
 %
 
 %% Specify figure name and output files

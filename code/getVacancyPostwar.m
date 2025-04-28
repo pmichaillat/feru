@@ -8,8 +8,8 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
-% * v – 276-by-1 numeric column vector with vacancy rate
+% * inputFolder - Character array with path to raw-data folder
+% * v - 276-by-1 numeric column vector with vacancy rate
 %
 %% Description
 %
@@ -23,9 +23,9 @@
 %
 %% Data source
 %
-% * Monthly vacancy rate, 1951Q1–2000Q4 – Barnichon (2010)
-% * Monthly vacancy level, 2001Q1–2019Q4 – Bureau of Labor Statistics (2024f)
-% * Monthly labor force level, 2001Q1–2019Q4 – Bureau of Labor Statistics (2024a)
+% * Monthly vacancy rate, 1951Q1–2000Q4 - Barnichon (2010)
+% * Monthly vacancy level, 2001Q1–2019Q4 - BLS (2024f)
+% * Monthly labor force level, 2001Q1–2019Q4 - BLS (2024a)
 %
 
 function v = getVacancyPostwar(inputFolder)

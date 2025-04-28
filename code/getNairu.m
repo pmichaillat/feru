@@ -8,7 +8,7 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
+% * inputFolder - Character array with path to raw-data folder
 % * nairu - 256-by-1 numeric column vector with NAIRU
 %
 %% Description

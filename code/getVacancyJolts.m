@@ -8,8 +8,8 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
-% * v – 94-by-1 numeric column vector with vacancy rate
+% * inputFolder - Character array with path to raw-data folder
+% * v - 94-by-1 numeric column vector with vacancy rate
 %
 %% Description
 %
@@ -22,8 +22,8 @@
 %
 %% Data source
 %
-% * Monthly vacancy level – Bureau of Labor Statistics (2024f)
-% * Monthly labor force level – Bureau of Labor Statistics (2024a)
+% * Monthly vacancy level - BLS (2024f)
+% * Monthly labor force level - BLS (2024a)
 %
 
 function v = getVacancyJolts(inputFolder)

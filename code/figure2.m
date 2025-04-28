@@ -8,19 +8,19 @@
 %
 %% Requirements
 %
-% * inputFolder – Path to the input folder (default: defined in main.m)
-% * outputFolder – Path to the output folder (default: defined in main.m)
-% * formatFigure.m – Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to the input folder (default: defined in main.m)
+% * outputFolder - Path to the output folder (default: defined in main.m)
+% * formatFigure.m - Script for plot formatting (default: run in main.m)
 %
 %% Output
 %
-% * figure2A.pdf – PDF file with panel A of figure 2
-% * figure2B.pdf – PDF file with panel B of figure 2
-% * figure2C.pdf – PDF file with panel C of figure 2
-% * figure2D.pdf – PDF file with panel D of figure 2
-% * figure2E.pdf – PDF file with panel E of figure 2
-% * figure2F.pdf – PDF file with panel F of figure 2
-% * figure2.csv – CSV file with data underlying panels A–F of figure 2
+% * figure2A.pdf - PDF file with panel A of figure 2
+% * figure2B.pdf - PDF file with panel B of figure 2
+% * figure2C.pdf - PDF file with panel C of figure 2
+% * figure2D.pdf - PDF file with panel D of figure 2
+% * figure2E.pdf - PDF file with panel E of figure 2
+% * figure2F.pdf - PDF file with panel F of figure 2
+% * figure2.csv - CSV file with data underlying panels A–F of figure 2
 %
 
 %% Specify figure names and output files

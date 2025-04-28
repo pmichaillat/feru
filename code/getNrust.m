@@ -8,7 +8,7 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
+% * inputFolder - Character array with path to raw-data folder
 % * nrust - 288-by-1 numeric column vector with short-term NRU
 %
 %% Description
@@ -17,7 +17,7 @@
 %
 %% Data source
 %
-% * Congressional Budget Office (2021)
+% * CBO (2021)
 %
 
 function nrust = getNrust(inputFolder)

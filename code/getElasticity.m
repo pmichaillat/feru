@@ -8,8 +8,8 @@
 %
 %% Arguments
 %
-% * inputFolder – Character array with path to raw-data folder
-% * epsilon – 276-by-1 numeric column vector with Beveridge elasticity
+% * inputFolder - Character array with path to raw-data folder
+% * epsilon - 276-by-1 numeric column vector with Beveridge elasticity
 %
 %% Description
 %
