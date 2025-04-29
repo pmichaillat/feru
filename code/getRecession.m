@@ -1,6 +1,6 @@
 %% getRecession
 % 
-% Return recession dates in the United States, 1930Q1–2024Q2
+% Return recession dates in the United States, 1930:Q1–2024:Q2
 %
 %% Syntax
 %
@@ -14,22 +14,22 @@
 %
 %% Description
 %
-% This function returns the start dates and end dates of US recessions between 1930Q1 and 2024Q2.
+% This function returns the start dates and end dates of US recessions between 1930:Q1 and 2024:Q2.
 %
-% The dates are expressed numerically in year.quarter format. For instance, 1951.0 is 1951Q1, 1951.25 is 1951Q2, 1951.5 is 1951Q3, and 1951.75 is 1951Q4.
+% The dates are expressed numerically in year.quarter format. For instance, 1951.0 is 1951:Q1, 1951.25 is 1951:Q2, 1951.5 is 1951:Q3, and 1951.75 is 1951:Q4.
 %
 
 function [startRecession, endRecession] = getRecession(inputFolder)
 
 %% Get recession dates for three subperiods
 
-% 1930Q1–1950Q4
+% 1930:Q1–1950:Q4
 [startDepression, endDepression]  = getRecessionDepression(inputFolder);
 
-% 1951Q1–2019Q4
+% 1951:Q1–2019:Q4
 [startPostwar, endPostwar]  = getRecessionPostwar(inputFolder);
 
-% 2020Q1–2024Q2
+% 2020:Q1–2024:Q2
 [startPandemic, endPandemic]  = getRecessionPandemic(inputFolder);
 
 %% Splice three series into one continuous series

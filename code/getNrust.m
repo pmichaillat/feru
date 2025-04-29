@@ -1,6 +1,6 @@
 %% getNrust
 % 
-% Return short-term NRU in the United States, 1949Q1–2020Q4
+% Return quarterly short-term NRU in the United States, 1949:Q1–2020:Q4
 %
 %% Syntax
 %
@@ -13,7 +13,7 @@
 %
 %% Description
 %
-% This function reads and returns the short-term NRU (natural/noncyclical rate of unemployment) in the United States, 1949Q1–2020Q4.
+% This function reads and returns the quarterly short-term NRU (natural/noncyclical rate of unemployment) in the United States, 1949:Q1–2020:Q4.
 %
 %% Data source
 %

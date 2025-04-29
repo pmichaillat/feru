@@ -4,13 +4,13 @@
 %
 %% Description
 %
-% This script produces panel B of figure 6 and associated numerical results. The figure displays the quarterly labor market tightness in the United States, 1930Q1–1950Q4.
+% This script produces panel B of figure 6 and associated numerical results. The figure displays the labor market tightness in the United States, 1930:Q1–1950:Q4.
 %
 %% Requirements
 %
-% * inputFolder - Path to the input folder (default: defined in main.m)
-% * outputFolder - Path to the output folder (default: defined in main.m)
-% * formatFigure.m - Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to input folder (default: defined in main.m)
+% * outputFolder - Path to output folder (default: defined in main.m)
+% * formatFigure.m - Predefine figure properties (default: run in main.m)
 %
 %% Output
 %
@@ -19,18 +19,18 @@
 % * figure6B.md - Markdown file with numerical results from panel B of figure 6
 %
 
-%% Specify figure name and output files
+%% Construct figure name and paths to output files
 
-% Define figure number
-number = '6B';
+% Define figure ID
+figureId = '6B';
 
 % Construct figure name
-figureName = ['Figure ', number];
+figureName = ['Figure ', figureId];
 
-% Construct file names
-figureFile = fullfile(outputFolder, ['figure', number, '.pdf']);
-dataFile = fullfile(outputFolder, ['figure', number, '.csv']);
-resultFile = fullfile(outputFolder, ['figure', number, '.md']);
+% Construct paths to output files
+figureFile = fullfile(outputFolder, ['figure', figureId, '.pdf']);
+dataFile = fullfile(outputFolder, ['figure', figureId, '.csv']);
+resultFile = fullfile(outputFolder, ['figure', figureId, '.md']);
 
 %% Get data
 
@@ -52,24 +52,25 @@ tightness = v ./ u;
 
 %% Produce figure
 
+% Set up figure window
 figure('NumberTitle', 'off', 'Name', figureName)
 hold on
 
 % Format x-axis
 ax = gca;
-set(ax, xDepression{:})
+set(ax, depressionAxis{:})
 
 % Format y-axis
 ax.YLim = [0, 7];
 ax.YTick = [0 : 1 : 7];
 ax.YLabel.String = 'Labor market tightness';
 
-% Paint recession areas
+% Shade recession areas
 xregion(startRecession, endRecession, grayArea{:})
 
-% Paint tightness gap with distinct colors for positive and negative gaps
+% Shade tightness gap with distinct colors for positive and negative gaps
 h = area(timeline, [ones(size(tightness)), min(tightness - 1, 0), max(tightness - 1, 0)]);
-set(h, {'FaceAlpha', 'FaceColor', 'LineStyle'}, purpleOrangeArea);
+set(h, {'FaceAlpha', 'FaceColor', 'LineStyle'}, purpleOrangeArea)
 
 % Plot labor market tightness
 plot(timeline, tightness, orangeLine{:})
@@ -98,10 +99,10 @@ tightnessMean = mean(tightness);
 [tightnessMin, iMin] = min(tightness);
 
 % Clear result file
-fid = fopen(resultFile, 'w');
-fclose(fid);
+if exist(resultFile,'file'), delete(resultFile), end
 
 % Display and save results
+fprintf('\nFigure %3s\n----------\n', figureId)
 diary(resultFile)
 fprintf('\n')
 fprintf('* Average labor market tightness: %4.2f \n', tightnessMean)

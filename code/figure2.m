@@ -4,13 +4,13 @@
 %
 %% Description
 %
-% This script produces panels A–F of figure 2. The six panels display on log scales the six branches of the Beveridge curve in the United States, 1951Q1–2019Q4.
+% This script produces panels A–F of figure 2. The six panels display on log scales the six branches of the Beveridge curve in the United States, 1951:Q1–2019:Q4.
 %
 %% Requirements
 %
-% * inputFolder - Path to the input folder (default: defined in main.m)
-% * outputFolder - Path to the output folder (default: defined in main.m)
-% * formatFigure.m - Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to input folder (default: defined in main.m)
+% * outputFolder - Path to output folder (default: defined in main.m)
+% * formatFigure.m - Predefine figure properties (default: run in main.m)
 %
 %% Output
 %
@@ -27,18 +27,18 @@
 
 clear figureName figureFile
 
-% Define figure number and panels
-number = '2';
+% Define figure ID and panels
+figureId = '2';
 panel = {'A', 'B', 'C', 'D', 'E', 'F'};
 
 % Construct figure names and files
 for iPanel = 1 : 6
-	figureName{iPanel} = ['Figure ', number, panel{iPanel}];
-    figureFile{iPanel} = fullfile(outputFolder, ['figure', number, panel{iPanel}, '.pdf']);
+	figureName{iPanel} = ['Figure ', figureId, panel{iPanel}];
+    figureFile{iPanel} = fullfile(outputFolder, ['figure', figureId, panel{iPanel}, '.pdf']);
 end
 
 % Construct data file
-dataFile = fullfile(outputFolder, ['figure', number, '.csv']);
+dataFile = fullfile(outputFolder, ['figure', figureId, '.csv']);
 
 %% Get data
 
@@ -71,7 +71,7 @@ end
 
 for iBranch = 1 : nBranch
 
-	% Create figure
+	% Set up figure window
 	fig = figure('NumberTitle', 'off', 'Name', figureName{iBranch});
 	hold on
 	
@@ -92,13 +92,13 @@ for iBranch = 1 : nBranch
 	% Format x-axis
 	ax.XLim = log([0.02, 0.16]);
 	ax.XTick = log([0.02, 0.04, 0.08, 0.16]);
-	ax.XTickLabel = [' 2'; ' 4'; ' 8'; '16'];
+	ax.XTickLabel = ["2"; "4"; "8"; "16"];
 	ax.XLabel.String = 'Unemployment rate (percent on log scale)';
 
 	% Format y-axis
 	ax.YLim = log([0.01, 0.08]);
 	ax.YTick = log([0.01, 0.02, 0.04, 0.08]);
-	ax.YTickLabel = ['1'; '2'; '4'; '8'];
+	ax.YTickLabel = ["1"; "2"; "4"; "8"];
 	ax.YLabel.String = 'Vacancy rate (percent on log scale)';
 
 	% Slightly adjust axes position for better layout

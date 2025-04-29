@@ -1,6 +1,6 @@
 %% getUnemploymentJolts
 % 
-% Return quarterly unemployment rate in the United States, 2001Q1–2024Q2
+% Return quarterly unemployment rate in the United States, 2001:Q1–2024:Q2
 %
 %% Syntax
 %
@@ -13,7 +13,7 @@
 %
 %% Description
 %
-% This function reads the monthly unemployment rate in the United States, 2001Q1–2024Q2, and returns the quarterly average of the series. 
+% This function reads the monthly unemployment rate in the United States, 2001:Q1–2024:Q2, and returns the quarterly average of the series. 
 %
 %% Data source
 %

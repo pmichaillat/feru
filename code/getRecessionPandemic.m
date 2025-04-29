@@ -1,6 +1,6 @@
 %% getRecessionPandemic
 % 
-% Return recession dates in the United States, 2020Q1–2024Q2
+% Return recession dates in the United States, 2020:Q1–2024:Q2
 %
 %% Syntax
 %
@@ -14,9 +14,9 @@
 %
 %% Description
 %
-% This function reads the peak dates and trough dates of US business cycles, 2020Q1–2024Q2. It then tranlates them into the start dates and end dates of US recessions: the first month of the recession is the month following the peak, and the last month of the recession is the month of the trough.
+% This function reads the peak dates and trough dates of US business cycles, 2020:Q1–2024:Q2. It then tranlates them into the start dates and end dates of US recessions: the first month of the recession is the month following the peak, and the last month of the recession is the month of the trough.
 %
-% The function then expresses the dates numerically in year.quarter format. For instance: 2020.0 is 2020Q1, 2020.25 is 2020Q2, 2020.5 is 2020Q3, and 2020.75 is 2020Q4.
+% The function then expresses the dates numerically in year.quarter format. For instance: 2020.0 is 2020:Q1, 2020.25 is 2020:Q2, 2020.5 is 2020:Q3, and 2020.75 is 2020:Q4.
 %
 %% Data source
 %

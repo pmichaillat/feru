@@ -4,13 +4,13 @@
 %
 %% Description
 %
-% This script produces panel A of figure 5 and associated numerical results. The figure displays the quarterly unemployment and vacancy rates in the United States, 1930Q1–1950Q4.
+% This script produces panel A of figure 5 and associated numerical results. The figure displays the unemployment and vacancy rates in the United States, 1930:Q1–1950:Q4.
 %
 %% Requirements
 %
-% * inputFolder - Path to the input folder (default: defined in main.m)
-% * outputFolder - Path to the output folder (default: defined in main.m)
-% * formatFigure.m - Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to input folder (default: defined in main.m)
+% * outputFolder - Path to output folder (default: defined in main.m)
+% * formatFigure.m - Predefine figure properties (default: run in main.m)
 %
 %% Output
 %
@@ -19,18 +19,18 @@
 % * figure5A.md - Markdown file with numerical results from panel A of figure 5
 %
 
-%% Specify figure name and output files
+%% Construct figure name and paths to output files
 
-% Define figure number
-number = '5A';
+% Define figure ID
+figureId = '5A';
 
 % Construct figure name
-figureName = ['Figure ', number];
+figureName = ['Figure ', figureId];
 
-% Construct file names
-figureFile = fullfile(outputFolder, ['figure', number, '.pdf']);
-dataFile = fullfile(outputFolder, ['figure', number, '.csv']);
-resultFile = fullfile(outputFolder, ['figure', number, '.md']);
+% Construct paths to output files
+figureFile = fullfile(outputFolder, ['figure', figureId, '.pdf']);
+dataFile = fullfile(outputFolder, ['figure', figureId, '.csv']);
+resultFile = fullfile(outputFolder, ['figure', figureId, '.md']);
 
 %% Get data
 
@@ -48,20 +48,21 @@ v = getVacancyDepression(inputFolder);
 
 %% Produce figure
 
+% Set up figure window
 figure('NumberTitle', 'off', 'Name', figureName)
 hold on
 
 % Format x-axis
 ax = gca;
-set(ax, xDepression{:})
+set(ax, depressionAxis{:})
 
 % Format y-axis
 ax.YLim = [0, 0.3];
 ax.YTick = [0 : 0.05 : 0.3];
-ax.YTickLabel = [' 0'; ' 5'; '10'; '15'; '20'; '25'; '30'];
+ax.YTickLabel = ["0"; "5"; "10"; "15"; "20"; "25"; "30"];
 ax.YLabel.String = 'Share of labor force (percent)';
 
-% Paint recession areas
+% Shade recession areas
 xregion(startRecession, endRecession, grayArea{:})
 
 % Plot unemployment and vacancy rates
@@ -92,10 +93,10 @@ vMean = mean(v);
 [vMin, iMinV] = min(v);
 
 % Clear result file
-fid = fopen(resultFile, 'w');
-fclose(fid);
+if exist(resultFile,'file'), delete(resultFile), end
 
 % Display and save results
+fprintf('\nFigure %3s\n----------\n', figureId)
 diary(resultFile)
 fprintf('\n')
 fprintf('* Average unemployment rate: %4.3f \n', uMean)

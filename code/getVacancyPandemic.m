@@ -1,6 +1,6 @@
 %% getVacancyPandemic
 % 
-% Return quarterly vacancy rate in the United States, 2020Q1–2024Q2
+% Return quarterly vacancy rate in the United States, 2020:Q1–2024:Q2
 %
 %% Syntax
 %
@@ -13,7 +13,7 @@
 %
 %% Description
 %
-% This function constructs and returns the quarterly vacancy rate in the United States, 2020Q1–2024Q2:
+% This function constructs and returns the quarterly vacancy rate in the United States, 2020:Q1–2024:Q2:
 %
 % * Reads the monthly vacancy level
 % * Reads the monthly labor force level

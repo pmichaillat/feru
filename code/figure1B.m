@@ -4,13 +4,13 @@
 %
 %% Description
 %
-% This script produces panel B of figure 1. The figure displays on a log scale the quarterly unemployment and vacancy rates in the United States, 1951Q1–2019Q4.
+% This script produces panel B of figure 1. The figure displays on a log scale the unemployment and vacancy rates in the United States, 1951:Q1–2019:Q4.
 %
 %% Requirements
 %
-% * inputFolder - Path to the input folder (default: defined in main.m)
-% * outputFolder - Path to the output folder (default: defined in main.m)
-% * formatFigure.m - Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to input folder (default: defined in main.m)
+% * outputFolder - Path to output folder (default: defined in main.m)
+% * formatFigure.m - Predefine figure properties (default: run in main.m)
 %
 %% Output
 %
@@ -18,17 +18,17 @@
 % * figure1B.csv - CSV file with data underlying panel B of figure 1
 %
 
-%% Specify figure name and output files
+%% Construct figure name and paths to output files
 
-% Define figure number
-number = '1B';
+% Define figure ID
+figureId = '1B';
 
 % Construct figure name
-figureName = ['Figure ', number];
+figureName = ['Figure ', figureId];
 
-% Construct file names
-figureFile = fullfile(outputFolder, ['figure', number, '.pdf']);
-dataFile = fullfile(outputFolder, ['figure', number, '.csv']);
+% Construct paths to output files
+figureFile = fullfile(outputFolder, ['figure', figureId, '.pdf']);
+dataFile = fullfile(outputFolder, ['figure', figureId, '.csv']);
 
 %% Get data
 
@@ -46,20 +46,21 @@ v = getVacancyPostwar(inputFolder);
 
 %% Produce figure
 
+% Set up figure window
 figure('NumberTitle', 'off', 'Name', figureName)
 hold on
 
 % Format x-axis
 ax = gca;
-set(ax, xPostwar{:})
+set(ax, postwarAxis{:})
 
 % Format y-axis
 ax.YLim = log([0.01, 0.12]);
 ax.YTick = log([0.01, 0.02 : 0.02 : 0.12]);
-ax.YTickLabel = [' 1'; ' 2'; ' 4'; ' 6'; ' 8'; '10'; '12'];
+ax.YTickLabel = ["1"; "2"; "4"; "6"; "8"; "10"; "12"];
 ax.YLabel.String = 'Share of labor force (percent on log scale)';
 
-% Paint recession areas
+% Shade recession areas
 xregion(startRecession, endRecession, grayArea{:})
 
 % Plot log unemployment and vacancy rates

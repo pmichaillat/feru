@@ -1,6 +1,6 @@
 %% getUnemploymentPostwar
 % 
-% Return quarterly unemployment rate in the United States, 1951Q1–2019Q4
+% Return quarterly unemployment rate in the United States, 1951:Q1–2019:Q4
 %
 %% Syntax
 %
@@ -13,7 +13,7 @@
 %
 %% Description
 %
-% This function reads the monthly unemployment rate in the United States, 1951Q1–2019Q4, and returns the quarterly average of the series. 
+% This function reads the monthly unemployment rate in the United States, 1951:Q1–2019:Q4, and returns the quarterly average of the series. 
 %
 %% Data source
 %

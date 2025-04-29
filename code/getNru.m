@@ -1,6 +1,6 @@
 %% getNru
 % 
-% Return NRU in the United States, 1949Q1–2024Q2
+% Return quarterly NRU in the United States, 1949:Q1–2024:Q2
 %
 %% Syntax
 %
@@ -13,7 +13,7 @@
 %
 %% Description
 %
-% This function reads and returns the NRU (natural/noncyclical rate of unemployment) in the United States, 1949Q1–2024Q2.
+% This function reads and returns the quarterly NRU (natural/noncyclical rate of unemployment) in the United States, 1949:Q1–2024:Q2.
 %
 %% Data source
 %

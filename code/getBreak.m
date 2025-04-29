@@ -1,6 +1,6 @@
 %% getBreak
 % 
-% Return break dates for US Beveridge curve, 1951Q1–2019Q4
+% Return break dates for US Beveridge curve, 1951:Q1–2019:Q4
 %
 %% Syntax
 %
@@ -13,7 +13,7 @@
 %
 %% Description
 %
-% This function reads and returns the dates of the structural breaks in the US Beveridge curve between 1951Q1 and 2019Q4. The dates are expressed numerically in year.quarter format. For instance, 1951.0 is 1951Q1, 1951.25 is 1951Q2, 1951.5 is 1951Q3, and 1951.75 is 1951Q4.
+% This function reads and returns the dates of the structural breaks in the US Beveridge curve between 1951:Q1 and 2019:Q4. The dates are expressed numerically in year.quarter format. For instance, 1951.0 is 1951:Q1, 1951.25 is 1951:Q2, 1951.5 is 1951:Q3, and 1951.75 is 1951:Q4.
 %
 %
 %% Data source

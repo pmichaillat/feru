@@ -1,6 +1,6 @@
 %% getUnemploymentDepression
 % 
-% Return quarterly unemployment rate in the United States, 1930Q1–1950Q4
+% Return quarterly unemployment rate in the United States, 1930:Q1–1950:Q4
 %
 %% Syntax
 %
@@ -13,7 +13,7 @@
 %
 %% Description
 %
-% This function reads the monthly unemployment rate in the United States, 1930Q1–1950Q4, and returns the quarterly average of the series. 
+% This function reads the monthly unemployment rate in the United States, 1930:Q1–1950:Q4, and returns the quarterly average of the series. 
 %
 %% Data source
 %

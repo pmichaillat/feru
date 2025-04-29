@@ -1,6 +1,6 @@
 %% getElasticity
 % 
-% Return Beveridge elasticity in the United States, 1951Q1–2019Q4
+% Return Beveridge elasticity in the United States, 1951:Q1–2019:Q4
 %
 %% Syntax
 %
@@ -13,7 +13,7 @@
 %
 %% Description
 %
-% This function reads and returns the elasticity of the Beveridge curve in the United States, 1951Q1–2019Q4.
+% This function reads and returns the elasticity of the Beveridge curve in the United States, 1951:Q1–2019:Q4.
 %
 %% Data source
 %

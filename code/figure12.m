@@ -4,13 +4,13 @@
 %
 %% Description
 %
-% This script produces figure 12 and associated numerical results. The figure displays on a log scale the quarterly labor market tightness in the United States, 1930Q1–2024Q2.
+% This script produces figure 12 and associated numerical results. The figure displays on a log scale the labor market tightness in the United States, 1930:Q1–2024:Q2.
 %
 %% Requirements
 %
-% * inputFolder - Path to the input folder (default: defined in main.m)
-% * outputFolder - Path to the output folder (default: defined in main.m)
-% * formatFigure.m - Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to input folder (default: defined in main.m)
+% * outputFolder - Path to output folder (default: defined in main.m)
+% * formatFigure.m - Predefine figure properties (default: run in main.m)
 %
 %% Output
 %
@@ -19,18 +19,18 @@
 % * figure12.md - Markdown file with numerical results from figure 12
 %
 
-%% Specify figure name and output files
+%% Construct figure name and paths to output files
 
-% Define figure number
-number = '12';
+% Define figure ID
+figureId = '12';
 
 % Construct figure name
-figureName = ['Figure ', number];
+figureName = ['Figure ', figureId];
 
-% Construct file names
-figureFile = fullfile(outputFolder, ['figure', number, '.pdf']);
-dataFile = fullfile(outputFolder, ['figure', number, '.csv']);
-resultFile = fullfile(outputFolder, ['figure', number, '.md']);
+% Construct paths to output files
+figureFile = fullfile(outputFolder, ['figure', figureId, '.pdf']);
+dataFile = fullfile(outputFolder, ['figure', figureId, '.csv']);
+resultFile = fullfile(outputFolder, ['figure', figureId, '.md']);
 
 %% Get data
 
@@ -52,25 +52,26 @@ tightness = v ./ u;
 
 %% Produce figure
 
+% Set up figure window
 figure('NumberTitle', 'off', 'Name', figureName)
 hold on
 
 % Format x-axis
 ax = gca;
-set(ax, x{:})
+set(ax, completeAxis{:})
 
 % Format y-axis
 ax.YLim = log([0.03, 8]);
 ax.YTick = log([0.03, 0.1, 0.3, 1, 2, 4, 8]);
-ax.YTickLabel = ['0.03'; ' 0.1'; ' 0.3'; '   1'; '   2'; '   4'; '   8'];
+ax.YTickLabel = ["0.03"; "0.1"; "0.3"; "1"; "2"; "4"; "8"];
 ax.YLabel.String = 'Labor market tightness (log scale)';
 
-% Paint recession areas
+% Shade recession areas
 xregion(startRecession, endRecession, grayArea{:})
 
-% Paint tightness gap with distinct colors for positive and negative gaps
+% Shade tightness gap with distinct colors for positive and negative gaps
 h = area(timeline, [zeros(size(log(tightness))), min(log(tightness), 0), max(log(tightness), 0)]);
-set(h, {'FaceAlpha', 'FaceColor', 'LineStyle'}, purpleOrangeArea);
+set(h, {'FaceAlpha', 'FaceColor', 'LineStyle'}, purpleOrangeArea)
 
 % Plot labor market tightness
 plot(timeline, log(tightness), orangeLine{:})
@@ -97,21 +98,21 @@ writematrix(round(data, 2), dataFile, 'WriteMode', 'append')
 tightnessMean = mean(tightness);
 [tightnessMax, iMax] = max(tightness);
 [tightnessMin, iMin] = min(tightness);
-tightness4245 = mean(tightness([timeline > 1941] & [timeline < 1946]));
-tightness5153 = mean(tightness([timeline > 1950] & [timeline < 1954]));
-tightness6669 = mean(tightness([timeline > 1965] & [timeline < 1970]));
+tightness4345 = mean(tightness([timeline >= 1943] & [timeline < 1946]));
+tightness5153 = mean(tightness([timeline >= 1951] & [timeline < 1954]));
+tightness6669 = mean(tightness([timeline >= 1966] & [timeline < 1970]));
 
 % Clear result file
-fid = fopen(resultFile, 'w');
-fclose(fid);
+if exist(resultFile,'file'), delete(resultFile), end
 
 % Display and save results
+fprintf('\nFigure %3s\n----------\n', figureId)
 diary(resultFile)
 fprintf('\n')
 fprintf('* Average labor market tightness: %4.2f \n', tightnessMean)
 fprintf('* Maximum labor market tightness: %4.2f in %4.2f \n', tightnessMax, timeline(iMax))
 fprintf('* Minimum labor market tightness: %4.2f in %4.2f \n', tightnessMin, timeline(iMin))
-fprintf('* Average labor market tightness over 1942–1945: %4.2f \n', tightness4245)
+fprintf('* Average labor market tightness over 1943–1945: %4.2f \n', tightness4345)
 fprintf('* Average labor market tightness over 1951–1953: %4.2f \n', tightness5153)
 fprintf('* Average labor market tightness over 1966–1969: %4.2f \n', tightness6669)
 fprintf('\n')

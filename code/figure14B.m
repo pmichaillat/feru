@@ -4,7 +4,7 @@
 %
 %% Description
 %
-% This script produces panel B of figure 14 and associated numerical results. The figure displays 3 variants of the quarterly unemployment gap in the United States, 1994Q1–2024Q2:
+% This script produces panel B of figure 14 and associated numerical results. The figure displays 3 variants of the unemployment gap in the United States, 1994:Q1–2024:Q2:
 %
 % * Unemployment gap based on concept U3 of unemployment
 % * Unemployment gap based on concept U4 of unemployment
@@ -12,9 +12,9 @@
 %
 %% Requirements
 %
-% * inputFolder - Path to the input folder (default: defined in main.m)
-% * outputFolder - Path to the output folder (default: defined in main.m)
-% * formatFigure.m - Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to input folder (default: defined in main.m)
+% * outputFolder - Path to output folder (default: defined in main.m)
+% * formatFigure.m - Predefine figure properties (default: run in main.m)
 %
 %% Output
 %
@@ -23,18 +23,18 @@
 % * figure14B.md - Markdown file with numerical results from panel B of figure 14
 %
 
-%% Specify figure name and output files
+%% Construct figure name and paths to output files
 
-% Define figure number
-number = '14B';
+% Define figure ID
+figureId = '14B';
 
 % Construct figure name
-figureName = ['Figure ', number];
+figureName = ['Figure ', figureId];
 
-% Construct file names
-figureFile = fullfile(outputFolder, ['figure', number, '.pdf']);
-dataFile = fullfile(outputFolder, ['figure', number, '.csv']);
-resultFile = fullfile(outputFolder, ['figure', number, '.md']);
+% Construct paths to output files
+figureFile = fullfile(outputFolder, ['figure', figureId, '.pdf']);
+dataFile = fullfile(outputFolder, ['figure', figureId, '.csv']);
+resultFile = fullfile(outputFolder, ['figure', figureId, '.md']);
 
 %% Get data
 
@@ -73,20 +73,21 @@ gap5 = u5 - uStar5;
 
 %% Produce figure
 
+% Set up figure window
 figure('NumberTitle', 'off', 'Name', figureName)
 hold on
 
 % Format x-axis
 ax = gca;
-set(ax, x345{:})
+set(ax, alternativeAxis{:})
 
 % Format y-axis
 ax.YLim = [-0.02, 0.08];
 ax.YTick = [-0.02 : 0.02 : 0.08];
-ax.YTickLabel = ['-2'; ' 0'; ' 2'; ' 4'; ' 6'; ' 8'];
+ax.YTickLabel = ["-2"; "0"; "2"; "4"; "6"; "8"];
 ax.YLabel.String = 'Share of labor force (percentage points)';
 
-% Paint recession areas
+% Shade recession areas
 xregion(startRecession, endRecession, grayArea{:})
 
 % Plot unemployment gaps
@@ -130,18 +131,18 @@ distance5Mean = mean(gap5 - gap3);
 [distance5Min, iMin5] = min(gap5 - gap3);
 
 % Clear result file
-fid = fopen(resultFile, 'w');
-fclose(fid);
+if exist(resultFile,'file'), delete(resultFile), end
 
 % Display and save results
+fprintf('\nFigure %3s\n----------\n', figureId)
 diary(resultFile)
 fprintf('\n')
 fprintf('* Average U3 gap: %4.3f \n', gap3Mean)
 fprintf('* Average U4 gap: %4.3f \n', gap4Mean)
 fprintf('* Average U5 gap: %4.3f \n', gap5Mean)
-fprintf('* U3 gap in 2024Q2: %4.3f \n', gap3(end))
-fprintf('* U4 gap in 2024Q2: %4.3f \n', gap4(end))
-fprintf('* U5 gap in 2024Q2: %4.3f \n', gap5(end))
+fprintf('* U3 gap in 2024:Q2: %4.3f \n', gap3(end))
+fprintf('* U4 gap in 2024:Q2: %4.3f \n', gap4(end))
+fprintf('* U5 gap in 2024:Q2: %4.3f \n', gap5(end))
 fprintf('* Average distance between U3 gap & U4 gap: %4.3f \n', distance4Mean)
 fprintf('* Maximum distance between U3 gap & U4 gap: %4.3f in %4.2f \n', distance4Max, timeline(iMax4))
 fprintf('* Minimum distance between U3 gap & U4 gap: %4.3f in %4.2f \n', distance4Min, timeline(iMin4))

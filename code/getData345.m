@@ -1,6 +1,6 @@
 %% getData345
 % 
-% Return quarterly unemployment and vacancy rates associated with U3, U4, U5 concepts in the United States, 1994Q1–2024Q2
+% Return quarterly unemployment and vacancy rates associated with U3, U4, U5 concepts in the United States, 1994:Q1–2024:Q2
 %
 %% Syntax
 %
@@ -18,7 +18,7 @@
 %
 %% Description
 %
-% This function produces various quarterly unemployment rates in the United States, 1994Q1–2024Q2:
+% This function produces various quarterly unemployment rates in the United States, 1994:Q1–2024:Q2:
 %
 % * u3 - Unemployment rate based on U3 concept
 % * u4 - Unemployment rate based on U4 concept
@@ -88,10 +88,10 @@ laborforce5 = laborforce3 + marginal;
 
 %% Produce vacancy rates
 
-% Get quarterly vacancy rate from a longer dataset (1930Q1–2024Q2)
+% Get quarterly vacancy rate from a longer dataset (1930:Q1–2024:Q2)
 vRate1930 = getVacancy(inputFolder);
 
-% Extract quarterly vacancy rate for 1994Q1–2024Q2
+% Extract quarterly vacancy rate for 1994:Q1–2024:Q2
 n = numel(u3);
 vRate = vRate1930(end - n + 1 : end);
 

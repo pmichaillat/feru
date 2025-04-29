@@ -4,7 +4,7 @@
 %
 %% Description
 %
-% This script produces figure 15 and associated numerical results. The figure displays various quarterly unemployment targets in the United States, 1930Q1–2024Q2.
+% This script produces figure 15 and associated numerical results. The figure displays various unemployment targets in the United States, 1930:Q1–2024:Q2.
 %
 % * Full-employment rate of unemployment (FERU)
 % * Natural rate of unemployment (NRU)
@@ -13,9 +13,9 @@
 %
 %% Requirements
 %
-% * inputFolder - Path to the input folder (default: defined in main.m)
-% * outputFolder - Path to the output folder (default: defined in main.m)
-% * formatFigure.m - Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to input folder (default: defined in main.m)
+% * outputFolder - Path to output folder (default: defined in main.m)
+% * formatFigure.m - Predefine figure properties (default: run in main.m)
 %
 %% Output
 %
@@ -24,18 +24,18 @@
 % * figure15.md - Markdown file with numerical results from figure 15
 %
 
-%% Specify figure name and output files
+%% Construct figure name and paths to output files
 
-% Define figure number
-number = '15';
+% Define figure ID
+figureId = '15';
 
 % Construct figure name
-figureName = ['Figure ', number];
+figureName = ['Figure ', figureId];
 
-% Construct file names
-figureFile = fullfile(outputFolder, ['figure', number, '.pdf']);
-dataFile = fullfile(outputFolder, ['figure', number, '.csv']);
-resultFile = fullfile(outputFolder, ['figure', number, '.md']);
+% Construct paths to output files
+figureFile = fullfile(outputFolder, ['figure', figureId, '.pdf']);
+dataFile = fullfile(outputFolder, ['figure', figureId, '.csv']);
+resultFile = fullfile(outputFolder, ['figure', figureId, '.md']);
 
 %% Get data
 
@@ -69,20 +69,21 @@ uStar = sqrt(u .* v);
 
 %% Produce figure
 
+% Set up figure window
 figure('NumberTitle', 'off', 'Name', figureName)
 hold on
 
 % Format x-axis
 ax = gca;
-set(ax, x{:})
+set(ax, completeAxis{:})
 
 % Format y-axis
 ax.YLim = [0, 0.1];
 ax.YTick = [0 : 0.02 : 0.1];
-ax.YTickLabel = [' 0'; ' 2'; ' 4'; ' 6'; ' 8'; '10'];
+ax.YTickLabel = ["0"; "2"; "4"; "6"; "8"; "10"];
 ax.YLabel.String = 'Share of labor force (percent)';
 
-% Paint recession areas
+% Shade recession areas
 xregion(startRecession, endRecession, grayArea{:})
 
 % Plot unemployment targets
@@ -120,18 +121,15 @@ data(:, 2) = uStar;
 
 % Add NRU data
 idx = find(timeline == timelineNru(1));
-n = numel(nru);
-data(idx : idx + n - 1, 3) = nru;
+data(idx : idx + numel(nru) - 1, 3) = nru;
 
 % Add NRUST data
 idx = find(timeline == timelineNrust(1));
-n = numel(nrust);
-data(idx : idx + n - 1, 4) = nrust;
+data(idx : idx + numel(nrust) - 1, 4) = nrust;
 
 % Add NAIRU data
 idx = find(timeline == timelineNairu(1));
-n = numel(nairu);
-data(idx : idx + n - 1, 5) = nairu;
+data(idx : idx + numel(nairu) - 1, 5) = nairu;
 
 % Write data
 writematrix(round(data, 4), dataFile, 'WriteMode', 'append')
@@ -155,10 +153,10 @@ distanceNruMean = mean(nru2019 - uStarNru);
 [distanceNruMin, iMinNru] = min(nru2019 - uStarNru);
 
 % Clear result file
-fid = fopen(resultFile, 'w');
-fclose(fid);
+if exist(resultFile,'file'), delete(resultFile), end
 
 % Display and save results
+fprintf('\nFigure %3s\n----------\n', figureId)
 diary(resultFile)
 fprintf('\n')
 fprintf('* Average NAIRU: %4.3f \n', nairuMean)

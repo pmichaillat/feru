@@ -4,13 +4,13 @@
 %
 %% Description
 %
-% This script produces figure 11 and associated numerical results. The figure displays on a log scale the quarterly unemployment rate, vacancy rate, and FERU in the United States, 1930Q1–2024Q2.
+% This script produces figure 11 and associated numerical results. The figure displays on a log scale the unemployment rate, vacancy rate, and FERU in the United States, 1930:Q1–2024:Q2.
 %
 %% Requirements
 %
-% * inputFolder - Path to the input folder (default: defined in main.m)
-% * outputFolder - Path to the output folder (default: defined in main.m)
-% * formatFigure.m - Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to input folder (default: defined in main.m)
+% * outputFolder - Path to output folder (default: defined in main.m)
+% * formatFigure.m - Predefine figure properties (default: run in main.m)
 %
 %% Output
 %
@@ -19,18 +19,18 @@
 % * figure11.md - Markdown file with numerical results from figure 11
 %
 
-%% Specify figure name and output files
+%% Construct figure name and paths to output files
 
-% Define figure number
-number = '11';
+% Define figure ID
+figureId = '11';
 
 % Construct figure name
-figureName = ['Figure ', number];
+figureName = ['Figure ', figureId];
 
-% Construct file names
-figureFile = fullfile(outputFolder, ['figure', number, '.pdf']);
-dataFile = fullfile(outputFolder, ['figure', number, '.csv']);
-resultFile = fullfile(outputFolder, ['figure', number, '.md']);
+% Construct paths to output files
+figureFile = fullfile(outputFolder, ['figure', figureId, '.pdf']);
+dataFile = fullfile(outputFolder, ['figure', figureId, '.csv']);
+resultFile = fullfile(outputFolder, ['figure', figureId, '.md']);
 
 %% Get data
 
@@ -52,25 +52,26 @@ uStar = sqrt(u .* v);
 
 %% Produce figure
 
+% Set up figure window
 figure('NumberTitle', 'off', 'Name', figureName)
 hold on
 
 % Format x-axis
 ax = gca;
-set(ax, x{:})
+set(ax, completeAxis{:})
 
 % Format y-axis
 ax.YLim = log([0.005, 0.3]);
 ax.YTick = log([0.005, 0.01, 0.02, 0.04, 0.08, 0.15, 0.3]);
-ax.YTickLabel = ['0.5'; '  1'; '  2'; '  4'; '  8'; ' 15'; ' 30'];
+ax.YTickLabel = ["0.5"; "1"; "2"; "4"; "8"; "15"; "30"];
 ax.YLabel.String = 'Share of labor force (percent on log scale)';
 
-% Paint recession areas
+% Shade recession areas
 xregion(startRecession, endRecession, grayArea{:})
 
-% Paint gap between unemployment and vacancy rates with distinct colors for positive and negative gaps
+% Shade gap between unemployment and vacancy rates with distinct colors for positive and negative gaps
 h = area(timeline, [log(uStar), max(log(u) - log(uStar), 0), min(log(u) - log(uStar), 0)]);
-set(h, {'FaceAlpha', 'FaceColor', 'LineStyle'}, purpleOrangeArea);
+set(h, {'FaceAlpha', 'FaceColor', 'LineStyle'}, purpleOrangeArea)
 
 % Plot unemployment rate, vacancy rate, and FERU
 plot(timeline, log(u), purpleMediumLine{:})
@@ -107,10 +108,10 @@ uStarMean = mean(uStar);
 [uStarMin, iMin] = min(uStar);
 
 % Clear result file
-fid = fopen(resultFile, 'w');
-fclose(fid);
+if exist(resultFile,'file'), delete(resultFile), end
 
 % Display and save results
+fprintf('\nFigure %3s\n----------\n', figureId)
 diary(resultFile)
 fprintf('\n')
 fprintf('* Average unemployment rate: %4.3f \n', uMean)

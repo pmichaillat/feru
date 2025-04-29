@@ -1,6 +1,6 @@
 %% getRecessionDepression
 % 
-% Return recession dates in the United States, 1930Q1–1950Q4
+% Return recession dates in the United States, 1930:Q1–1950:Q4
 %
 %% Syntax
 %
@@ -14,9 +14,9 @@
 %
 %% Description
 %
-% This function reads the peak dates and trough dates of US business cycles, 1930Q1–1950Q4. It then tranlates them into the start dates and end dates of US recessions: the first month of the recession is the month following the peak, and the last month of the recession is the month of the trough.
+% This function reads the peak dates and trough dates of US business cycles, 1930:Q1–1950:Q4. It then tranlates them into the start dates and end dates of US recessions: the first month of the recession is the month following the peak, and the last month of the recession is the month of the trough.
 %
-% The function then expresses the dates numerically in year.quarter format. For instance: 1930.0 is 1930Q1, 1930.25 is 1930Q2, 1930.5 is 1930Q3, and 1930.75 is 1930Q4.
+% The function then expresses the dates numerically in year.quarter format. For instance: 1930.0 is 1930:Q1, 1930.25 is 1930:Q2, 1930.5 is 1930:Q3, and 1930.75 is 1930:Q4.
 %
 %% Data source
 %

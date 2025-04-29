@@ -1,6 +1,6 @@
 %% getNairu
 % 
-% Return NAIRU in the United States, 1960Q1–2023Q4
+% Return quarterly NAIRU in the United States, 1960:Q1–2023:Q4
 %
 %% Syntax
 %
@@ -13,7 +13,7 @@
 %
 %% Description
 %
-% This function reads and returns the NAIRU (non-accelerating-inflation rate of unemployment) in the United States, 1960Q1–2023Q4.
+% This function reads and returns the quarterly NAIRU (non-accelerating-inflation rate of unemployment) in the United States, 1960:Q1–2023:Q4.
 %
 %% Data source
 %

@@ -1,6 +1,6 @@
 %% getRecessionPostwar
 % 
-% Return recession dates in the United States, 1951Q1–2019Q4
+% Return recession dates in the United States, 1951:Q1–2019:Q4
 %
 %% Syntax
 %
@@ -14,9 +14,9 @@
 %
 %% Description
 %
-% This function reads the peak dates and trough dates of US business cycles, 1951Q1–2019Q4. It then tranlates them into the start dates and end dates of US recessions: the first month of the recession is the month following the peak, and the last month of the recession is the month of the trough.
+% This function reads the peak dates and trough dates of US business cycles, 1951:Q1–2019:Q4. It then tranlates them into the start dates and end dates of US recessions: the first month of the recession is the month following the peak, and the last month of the recession is the month of the trough.
 %
-% The function then expresses the dates numerically in year.quarter format. For instance, 1951.0 is 1951Q1, 1951.25 is 1951Q2, 1951.5 is 1951Q3, and 1951.75 is 1951Q4.
+% The function then expresses the dates numerically in year.quarter format. For instance, 1951.0 is 1951:Q1, 1951.25 is 1951:Q2, 1951.5 is 1951:Q3, and 1951.75 is 1951:Q4.
 %
 %% Data source
 %

@@ -4,7 +4,7 @@
 %
 %% Description
 %
-% This script produces panel B of figure 13 and associated numerical results. The figure displays the quarterly FERU in the United States, 1930Q1–2024Q2, for a range of alternative calibrations:
+% This script produces panel B of figure 13 and associated numerical results. The figure displays the FERU in the United States, 1930:Q1–2024:Q2, for a range of alternative calibrations:
 %
 % * Beveridge elasticity between 0.75 and 1.25
 % * Recruiting cost between 0.75 and 1.25
@@ -14,9 +14,9 @@
 %
 %% Requirements
 %
-% * inputFolder - Path to the input folder (default: defined in main.m)
-% * outputFolder - Path to the output folder (default: defined in main.m)
-% * formatFigure.m - Script for plot formatting (default: run in main.m)
+% * inputFolder - Path to input folder (default: defined in main.m)
+% * outputFolder - Path to output folder (default: defined in main.m)
+% * formatFigure.m - Predefine figure properties (default: run in main.m)
 %
 %% Output
 %
@@ -25,18 +25,18 @@
 % * figure13B.md - Markdown file with numerical results from panel B of figure 13
 %
 
-%% Specify figure name and output files
+%% Construct figure name and paths to output files
 
-% Define figure number
-number = '13B';
+% Define figure ID
+figureId = '13B';
 
 % Construct figure name
-figureName = ['Figure ', number];
+figureName = ['Figure ', figureId];
 
-% Construct file names
-figureFile = fullfile(outputFolder, ['figure', number, '.pdf']);
-dataFile = fullfile(outputFolder, ['figure', number, '.csv']);
-resultFile = fullfile(outputFolder, ['figure', number, '.md']);
+% Construct paths to output files
+figureFile = fullfile(outputFolder, ['figure', figureId, '.pdf']);
+dataFile = fullfile(outputFolder, ['figure', figureId, '.csv']);
+resultFile = fullfile(outputFolder, ['figure', figureId, '.md']);
 
 %% Get data
 
@@ -92,23 +92,24 @@ uStarZetaHigh = uStar(u, v, epsilonBaseline, kappaBaseline, zetaHigh);
 
 %% Produce figure
 
+% Set up figure window
 figure('NumberTitle', 'off', 'Name', figureName)
 hold on
 
 % Format x-axis
 ax = gca;
-set(ax, x{:})
+set(ax, completeAxis{:})
 
 % Format y-axis
 ax.YLim = [0, 0.08];
 ax.YTick = [0 : 0.02 : 0.08];
-ax.YTickLabel = ['0'; '2'; '4'; '6'; '8'];
+ax.YTickLabel = ["0"; "2"; "4"; "6"; "8"];
 ax.YLabel.String = 'Share of labor force (percent)';
 
-% Paint recession areas
+% Shade recession areas
 xregion(startRecession, endRecession, grayArea{:})
 
-% Paint FERU area for range of Beveridge elasticities
+% Shade FERU area for range of Beveridge elasticities
 h1 = area(timeline, [uStarEpsilonLow, uStarEpsilonHigh - uStarEpsilonLow]);
 
 % Format first FERU area
@@ -122,7 +123,7 @@ h1(2).LineWidth = medium;
 h1(2).LineStyle = '-.';
 h1(2).EdgeColor = pinkLight;
 
-% Paint FERU area for range of recruiting costs
+% Shade FERU area for range of recruiting costs
 h2 = area(timeline, [uStarKappaLow, uStarKappaHigh - uStarKappaLow]);
 
 % Format second FERU area
@@ -136,7 +137,7 @@ h2(2).LineWidth = medium;
 h2(2).LineStyle = '--';
 h2(2).EdgeColor = pinkMedium;
 
-% Paint FERU area for range of social products of unemployed labor
+% Shade FERU area for range of social products of unemployed labor
 h3 = area(timeline, [uStarZetaLow, uStarZetaHigh - uStarZetaLow]);
 
 % Format third FERU area
@@ -174,19 +175,19 @@ widthKappaMean = mean(abs(uStarKappaLow - uStarKappaHigh));
 widthZetaMean = mean(abs(uStarZetaLow - uStarZetaHigh));
 
 % Clear result file
-fid = fopen(resultFile, 'w');
-fclose(fid);
+if exist(resultFile,'file'), delete(resultFile), end
 
 % Display and save results
+fprintf('\nFigure %3s\n----------\n', figureId)
 diary(resultFile)
 fprintf('\n')
-fprintf('* Baseline FERU in 2024Q2: %4.3f \n', uStarBaseline(end))
-fprintf('* FERU with epsilon = 0.75 in 2024Q2: %4.3f \n', uStarEpsilonLow(end))
-fprintf('* FERU with epsilon = 1.25 in 2024Q2: %4.3f \n', uStarEpsilonHigh(end))
-fprintf('* FERU with kappa = 0.75 in 2024Q2: %4.3f \n', uStarKappaLow(end))
-fprintf('* FERU with kappa = 1.25 in 2024Q2: %4.3f \n', uStarKappaHigh(end))
-fprintf('* FERU with zeta = -0.25 in 2024Q2: %4.3f \n', uStarZetaLow(end))
-fprintf('* FERU with zeta = 0.25 in 2024Q2: %4.3f \n', uStarZetaHigh(end))
+fprintf('* Baseline FERU in 2024:Q2: %4.3f \n', uStarBaseline(end))
+fprintf('* FERU with epsilon = 0.75 in 2024:Q2: %4.3f \n', uStarEpsilonLow(end))
+fprintf('* FERU with epsilon = 1.25 in 2024:Q2: %4.3f \n', uStarEpsilonHigh(end))
+fprintf('* FERU with kappa = 0.75 in 2024:Q2: %4.3f \n', uStarKappaLow(end))
+fprintf('* FERU with kappa = 1.25 in 2024:Q2: %4.3f \n', uStarKappaHigh(end))
+fprintf('* FERU with zeta = -0.25 in 2024:Q2: %4.3f \n', uStarZetaLow(end))
+fprintf('* FERU with zeta = 0.25 in 2024:Q2: %4.3f \n', uStarZetaHigh(end))
 fprintf('* Average width of FERU area when 0.75 < epsilon < 1.25: %4.3f \n', widthEpsilonMean)
 fprintf('* Average width of FERU area when 0.75 < kappa < 1.25: %4.3f \n', widthKappaMean)
 fprintf('* Average width of FERU area when -0.25 < zeta < 0.25: %4.3f \n', widthZetaMean)
